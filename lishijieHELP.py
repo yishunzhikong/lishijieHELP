@@ -5,8 +5,6 @@ import re
 import os
 import time
 
-os.environ['$']="里世界签到"
-
 # URL常量
 website = "https://www.lishijie.top"
 coinPath = "/user/coin"
