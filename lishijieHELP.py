@@ -114,7 +114,6 @@ if __name__ == '__main__':
     # 读取用户登录信息,优先环境变量，其次配置文件
     #读取环境变量，若变量不存在则返回 默认值 'null'
     userInfoEnv = os.getenv( "LISHIJIE_USER", 'null')
-    print(userInfoEnv)
     if userInfoEnv == 'null':
         printLogsInfo(logsPath, log_INFO, "未读取到环境变量'LISHIJIE_USER',使用配置文件")
         userInfo = Json2Dict(configPath, configEncod)
