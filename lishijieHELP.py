@@ -32,6 +32,16 @@ log_INFO = "info"
 logsFileStatus = 0  # 日志文件状态
 
 
+# 创建日志文件
+# file:日志文件路径
+def createLogsFile(file):
+    if not os.access(file, os.F_OK) or os.access(file, os.W_OK):
+        open(file, 'w').close()
+        logsFileStatus = 1
+    else:
+        logsFileStatus = 0
+
+
 # 打印信息并写入日志
 # filename:日志文件名
 # infotype:信息类类型
@@ -57,24 +67,6 @@ def printLogsInfo(filename, infotype, data):
     file.close()  # 关闭日志文件
 
 
-# 读取我的余额
-# html:登陆后网页源码
-# return:搜索到的余额数据
-def getCoin(html):
-    # 搜索我的余额标签
-    return re.search('<p class="small m-0">当前余额：(.*?)</p>', html, re.S).group(1)
-
-
-# 获取登录后数据
-# url:登录php链接
-# data:post传输的用户信息
-# s:登陆后页面数据
-def getLogin(url, data, head):
-    s = requests.session()
-    rs = s.post(url, data=data, headers=head)
-    return s
-
-
 # 读取并检查json
 # file:json文件
 # encoding:字符编码
@@ -91,14 +83,22 @@ def Json2Dict(file, encoding):
             return dictInfo
 
 
-# 创建日志文件
-# file:日志文件路径
-def createLogsFile(file):
-    if not os.access(file, os.F_OK) or os.access(file, os.W_OK):
-        open(file, 'w').close()
-        logsFileStatus = 1
-    else:
-        logsFileStatus = 0
+# 获取登录后数据
+# url:登录php链接
+# data:post传输的用户信息
+# s:登陆后页面数据
+def getLogin(url, data, head):
+    s = requests.session()
+    rs = s.post(url, data=data, headers=head)
+    return s
+
+
+# 读取我的余额
+# html:登陆后网页源码
+# return:搜索到的余额数据
+def getCoin(html):
+    # 搜索我的余额标签
+    return re.search('<p class="small m-0">当前余额：(.*?)</p>', html, re.S).group(1)
 
 
 # 主函数
