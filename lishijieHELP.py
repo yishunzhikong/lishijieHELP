@@ -1,23 +1,11 @@
-'''
-lishijie自动签到
-活动地址: lishijie.cc
-=================================青龙===================================
-[Script]
-cron "22 18 * * *" script-path=https://raw.githubusercontent.com/yishunzhikong/lishijieHELP/main/lishijieHELP.py,tag=lishijie自动签到
-
-=========================Surge============================
-lishijie自动签到 = type=cron,cronexp="22 18 * * *",wake-system=1,timeout=3600,script-path=lishijieHELP.py
-
-=========================小火箭===========================
-lishijie自动签到 = type=cron,script-path=lishijieHELP.py, cronexpr="22 18 * * *", timeout=3600, enable=true
-'''
-
 # 导入库
 import requests
 import json
 import re
 import os
 import time
+
+os.environ['$']="里世界签到"
 
 # URL常量
 website = "https://www.lishijie.top"
