@@ -13,17 +13,17 @@ log_INFO = "info"
 logsFileStatus = 0  # 日志文件状态
 
 # URL常量
-website     = "https://www.lishijie.top"
-coinPath    = "/user/coin"
-loginPath   = "/wp-admin/admin-ajax.php"
+website = "https://www.lishijie.top"
+coinPath = "/user/coin"
+loginPath = "/wp-admin/admin-ajax.php"
+loginAction = "user_login"
+checkAction = "user_qiandao"
 UserAgent = {
                 'User-Agent':
                     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
                     AppleWebKit/537.36 (KHTML, like Gecko) \
                     Chrome/99.0.4844.84 Safari/537.36'
              }
-loginAction = "user_login"
-checkAction = "user_qiandao"
 
 # 配置文件
 configPath = 'config.json'  # 用户登录信息文件
@@ -97,23 +97,6 @@ def Json2Dict(file, encoding):
             return dictInfo
 
 
-# 检查配置文件
-# configdict:配置文件字典
-# configdict["seting"]:设置信息字典
-# configdict["user"]：用户信息字典
-def getConfig(configdict):
-    for nickname, values in configTypeDict.items():
-        if configdict.__contains__(nickname) == False:
-            printLogsInfo(logsPath, log_ER, "配置文件未找到" + nickname + "项，请检查配置文件！")
-            exit()
-        for setType in values:
-            if configdict[nickname].__contains__(setType) == False:
-                printLogsInfo(logsPath, log_ER, "配置文件" + nickname + "下未找到" + setType + "设置，请检查配置文件！")
-                exit()
-
-    return configdict["seting"], configdict["user"]
-
-
 # 创建日志文件
 # file:日志文件路径
 def createLogsFile(file):
@@ -135,9 +118,7 @@ if __name__ == '__main__':
     printLogsInfo(logsPath, log_INFO, "签到中，请稍候......")
 
     # 读取用户登录信息
-    configDict = Json2Dict(configPath, configEncod)
-    # 读解析配置文件
-    setingInfo, userInfo = getConfig(configDict)
+    userInfo = Json2Dict(configPath, configEncod)
     # 读取登录和金币url
     loginUrl = website + loginPath
     coinUrl = website + coinPath
