@@ -5,13 +5,6 @@ import re
 import os
 import time
 
-# 日志常量
-loginOkFlag = "wordpress"
-log_ER = "error"
-log_WARN = "warning"
-log_INFO = "info"
-logsFileStatus = 0  # 日志文件状态
-
 # URL常量
 website = "https://www.lishijie.top"
 coinPath = "/user/coin"
@@ -30,6 +23,13 @@ configPath = 'config.json'  # 用户登录信息文件
 configEncod = 'utf-8'  # 用户登录信息文件字符集
 # 日志文件
 logsPath = 'logs.txt'
+
+# 日志常量
+loginOkFlag = "wordpress"
+log_ER = "error"
+log_WARN = "warning"
+log_INFO = "info"
+logsFileStatus = 0  # 日志文件状态
 
 
 # 打印信息并写入日志
