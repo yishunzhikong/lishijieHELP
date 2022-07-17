@@ -31,12 +31,6 @@ configEncod = 'utf-8'  # 用户登录信息文件字符集
 # 日志文件
 logsPath = 'logs.txt'
 
-# 配置文件元组
-# 包含配置文件所有必须配置项
-configTypeDict = {
-    "user": []
-}
-
 
 # 打印信息并写入日志
 # filename:日志文件名
