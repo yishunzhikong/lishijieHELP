@@ -12,6 +12,8 @@ log_WARN = "warning"
 log_INFO = "info"
 logsFileStatus = 0 #日志文件状态
 
+#网页常量
+
 #配置文件
 configPath = 'config.json' #用户登录信息文件
 configEncod = 'utf-8' #用户登录信息文件字符集
