@@ -1,3 +1,11 @@
+'''
+lishijie自动签到
+活动地址: lishijie.cc
+=================================青龙===================================
+[Script]
+cron "22 18 * * *" script-path=https://raw.githubusercontent.com/yishunzhikong/lishijieHELP/main/lishijieHELP.py,tag=lishijie自动签到
+'''
+
 # 导入库
 import requests
 import json
