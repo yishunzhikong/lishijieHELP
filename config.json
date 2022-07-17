@@ -1,0 +1,18 @@
+{
+	"seting": {
+		//当签到失效时，检查"website"是否改变
+		"website": "https://www.lishijie.top",
+		"coinPath": "/user/coin",
+		"loginPath": "/wp-admin/admin-ajax.php",
+		"header": {
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36"
+		},
+		"loginAction": "user_login",
+		"checkAction": "user_qiandao"
+	},
+	"user": {
+		//username不可重复！
+		"username_1": ["useremail_1", "password_1"],
+		"username_2": ["useremail_2", "password_2"]
+	}
+}
