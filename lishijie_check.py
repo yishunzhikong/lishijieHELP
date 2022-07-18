@@ -1,7 +1,7 @@
 # 导入库
 # -*- coding: utf-8 -*-
 '''
-cron "0 18 * * *" script-path=lishijie_check.py
+cron "0 18 * * *"
 '''
 
 import requests
