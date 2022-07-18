@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 new Env('lishijie签到');
-crontab 0 18 * * *
+cron 0 18 * * *
 """
 
 import requests
