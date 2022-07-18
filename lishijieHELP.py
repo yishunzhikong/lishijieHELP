@@ -4,7 +4,6 @@ import json
 import re
 import os
 import time
-from notify import print
 
 # URL常量
 website = "https://www.lishijie.top"
