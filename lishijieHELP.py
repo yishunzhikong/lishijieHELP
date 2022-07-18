@@ -1,4 +1,10 @@
 # 导入库
+# -*- coding: utf-8 -*-
+"""
+new Env('lishijie签到');
+crontab 0 18 * * *
+"""
+
 import requests
 import json
 import re
