@@ -59,135 +59,122 @@ ql repo https://github.com/yishunzhikong/lishijieHELP.git
   - `useremail` ：lishijie用户登录邮箱
   - `password` ：lishijie用户登录密码
 
-#### 1.环境变量模式
+#### 方式1：环境变量
 
-运行一下命令
+按以下步骤运行命令：
 
-旧版(青龙v2.12以下)
-```shell
-export \
-"{ \
-	"username_1": ["useremail_1", "password_1"], \
-	"username_2": ["useremail_2", "password_2"] \
-}" \
->> ql/config/env.sh
-```
+a. 进入青龙配置文件目录
 
-新版
-```shell
-export \
-"{ \
-	"username_1": ["useremail_1", "password_1"], \
-	"username_2": ["useremail_2", "password_2"] \
-}" \
->> ql/data/config/env.sh
-```
+  - 旧版(青龙v2.12以下)
 
-#### 2.配置文件模式
+  ```shell
+  cd /ql/config
+  ```
 
-### 2.运行以下命令
+  - 新版
 
-旧版(青龙v2.12以下)
+  ```shell
+  cd /ql/data/config
+  ```
+
+b. 写入环境变量到青龙环境变量配置文件
+
+  ```shell
+  echo \
+  "{\
+    "username_1": ["useremail_1", "password_1"],\
+    "username_2": ["useremail_2", "password_2"]\
+  }"\
+  >>env.sh
+  ```
+
+#### 方式2：配置文件
+
+按以下步骤运行命令：
+
+a. 进入lishijie签到脚本目录
+
+  - 旧版(青龙v2.12以下)
+
+  ```
+  cd /ql/repo/lishijieHELP
+  ```
+
+  - 新版
+
+  ```
+  cd /ql/data/repo/lishijieHELP
+  ```
+
+b. 创建并写入配置文件
+
+  ```shell
+  touch config.sh && \
+  echo \
+  "{ \
+    "username_1": ["useremail_1", "password_1"],\
+    "username_2": ["useremail_2", "password_2"]\
+  }"\
+  >> config.json
+  ```
+
+### 3.运行签到脚本
+
+- 旧版(青龙v2.12以下)
 
 ```shell
 cd /ql/repo/lishijieHELP && python3 lishijie_check.py
 ```
 
-新版
+- 新版
 
 ```shell
 cd /ql/data/repo/lishijieHELP && python3 lishijie_check.py
 ```
 
-### 3.说明
+### 34.添加定时执行
 
-1.本仓库在12.21日的更新中同时支持了json和toml两种格式的配置文件，但是推荐使用toml格式配置文件
+按以下步骤运行命令：
 
-2.当toml和json配置文件共存时优先使用toml文件
+a. 进入青龙配置文件目录
 
-3.为避免未设置的签到项目推送，请禁止该签到任务，或注释掉配置文件中关于这个任务的配置项目
+  - 旧版(青龙v2.12以下)
 
-4.在运行修改运行时间后若出现未知错误
+  ```shell
+  cd /ql/config
+  ```
 
-**请先确认database.sqlite.back或crontab.db.back是否存在**,然后
+  - 新版
 
-```
-cd /ql/data/db/ && rm database.sqlite && cp database.sqlite.back database.sqlite #v2.12+
-```
+  ```shell
+  cd /ql/data/config
+  ```
 
-```
-cd /ql/db/ && rm database.sqlite && cp database.sqlite.back database.sqlite #v2.11+
-```
+b. 写入环境变量到青龙环境变量配置文件
 
-```
-cd /ql/db/ && rm crontab.db && cp crontab.db.back crontab.db #v2.11-
-```
+  ```shell
+  echo "0 18 * * * ID=1 task lishijieHELP/lishijie_check.py">>crontab.list
+  ```
 
-### 4.**更新支持了多账号**
-
-toml配置方式
-
-```toml
-[[ACFUN]]
-password = "Sitoi"
-phone = "188xxxxxxxx"
-
-[[ACFUN]]
-password = "123456"
-phone = "135xxxxxxxx"
-```
-
-json配置方式
-
-```json
-  "ACFUN" : [
-    {
-    "password": "Sitoi",
-    "phone": "18888xxxxxx"
-    },
-{
-"password": "多账号 密码填写，请参考上面",
-"phone": "多账号 手机号填写，请参考上面"
-}
-],
-```
+  注意：ID根据实际情况填写
 
 ### 5.通知配置
 
-来自于青龙的config.sh
+暂时未添加通知功能
 
-**在2022.4.10更新接入消息推送APP**
-
-环境变量为设置别名的内容
-
-```shell
-export MI_PUSH_ALIAS="********"
-```
+### 5.说明
 
 ## 其他
 
-#### 1.关于 toml 的语法参考：
+#### 1.关于 json 的语法参考：
 
-* [toml-lang/toml](https://github.com/toml-lang/toml)
-* [中文知乎介绍](https://zhuanlan.zhihu.com/p/50412485)
-* [TOML 教程中文版](https://toml.io/cn/v1.0.0)
-
-#### 2.排错指引
-
-1.在sitoi/dailycheckin的某次更新中修改了键名，请尽量删除原配置文件后重新配置
-
-2.本库找配置文件时使用了正则表达式,在最外层配置时可以不区分大小写，且只要包含字段就可以，甚至可以写中文(强烈不建议这么写,貌似toml不支持)
-
-3.很多脚本并没有测试
+* [JSON语法-菜鸟教程](https://www.runoob.com/json/json-syntax.html)
+* [JSON-维基百科](https://zh.m.wikipedia.org/zh/JSON)
+* [JSON-百度百科](https://baike.baidu.com/item/JSON/2462549)
+* [JSON中文](https://www.json.org/json-zh.html)
 
 ## 致谢
 
-[@Wenmoux](https://github.com/Wenmoux/)
+## 随时间的关注趋势
 
-[@Sitoi](https://github.com/Sitoi)
-
-[@Oreomeow](https://github.com/Oreomeow)
-
-## Stargazers over time
-
-[![Stargazers over time](https://starchart.cc/yuxian158/check.svg)](https://starchart.cc/yuxian158/check)
+[![随时间的关注趋势](https://starchart.cc/yishunzhikong/lishijieHELP.svg)](https://starchart.cc/yishunzhikong/lishijieHELP)
