@@ -175,6 +175,7 @@ b. 写入环境变量到青龙环境变量配置文件
 
 ## 致谢
 
-## 随时间的关注趋势
+## Stargazers over time
 
-[![随时间的关注趋势](https://starchart.cc/yishunzhikong/lishijieHELP.svg)](https://starchart.cc/yishunzhikong/lishijieHELP)
+[![Stargazers over time](https://starchart.cc/yishunzhikong/lishijieHELP.svg)](https://starchart.cc/yishunzhikong/lishijieHELP)
+
