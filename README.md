@@ -37,7 +37,7 @@
 
 ### 1.拉取仓库
 
-```
+```shell
 ql repo https://github.com/yishunzhikong/lishijieHELP.git
 ```
 
@@ -161,8 +161,6 @@ b. 写入环境变量到青龙环境变量配置文件
 ### 5.通知配置
 
 暂时未添加通知功能
-
-### 5.说明
 
 ## 其他
 
