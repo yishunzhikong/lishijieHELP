@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 new Env('lishijie自动签到');
-cron "0 18 * * *" script-path=lishijie_check.py
+cron "0 19 * * *" script-path=lishijie_check.py
 '''
 
 import requests
