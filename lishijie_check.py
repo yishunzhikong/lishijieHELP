@@ -1,7 +1,6 @@
 # 导入库
 # -*- coding: utf-8 -*-
 '''
-lishijie自动签到脚本
 new Env('lishijie自动签到');
 cron "0 18 * * *" script-path=lishijie_check.py
 '''
