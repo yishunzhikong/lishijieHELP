@@ -12,7 +12,7 @@ import os
 import time
 
 # URL常量
-website = "https://www.lishijie.top"
+website = "https://www.lishijie.me"
 coinPath = "/user/coin"
 loginPath = "/wp-admin/admin-ajax.php"
 loginAction = "user_login"
