@@ -11,8 +11,6 @@ import re
 import os
 import time
 
-#test
-
 # URL常量
 website = "https://www.lishijie.top"
 coinPath = "/user/coin"
